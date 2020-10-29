@@ -5,6 +5,9 @@
  */
 package jwcalculadora;
 
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Alejandro Campos Maestre
@@ -15,13 +18,15 @@ public class jfCalculadora extends javax.swing.JFrame
     private logicaCal logica = new logicaCal();
     private float operador1 = 0;
     private float operador2 = 0;
-
+    
     /**
      * Creates new form jfCalculadora
      */
     public jfCalculadora()
     {
         initComponents();
+        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("calc.png")));
+        this.setIconImage(icon.getImage());
     }
 
     /**
