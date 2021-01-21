@@ -1,0 +1,7 @@
+<toc version="1.0">
+    <tocitem text="Ayuda de la aplicacion 'Best calculator'" target="menu">
+        <tocitem text="Operadores" target="operadores"/>
+        <tocitem text="Opciones" target="opcion"/>
+        <tocitem text="Resultado" target="resultado"/>
+    </tocitem>
+</toc>

@@ -1,0 +1,4 @@
+
+C:\Users\alex_\Desktop\jh2.0\javahelp\bin\jhindexer html
+
+Coger el jhindexer y darle como parametro la carpeta de html

@@ -1,0 +1,6 @@
+<index versio="1.0">
+    <indexitem text="Ayuda de la aplicacion 'Best calculator'" target="menu"/>
+    <indexitem text="Operadores" target="operadores"/>
+    <indexitem text="Opcion" target="opcion"/>
+    <indexitem text="Resultado" target="resultado"/>
+</index>

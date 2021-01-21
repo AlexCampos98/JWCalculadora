@@ -1,0 +1,6 @@
+<map version="1.0">
+    <mapID target="menu" url="html/main.html"/>
+    <mapID target="operadores" url="html/principal.html"/>
+    <mapID target="opcion" url="html/opcion.html"/>
+    <mapID target="resultado" url="html/resultado.html"/>
+</map>

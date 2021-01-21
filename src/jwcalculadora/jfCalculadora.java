@@ -6,6 +6,13 @@
 package jwcalculadora;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.help.HelpBroker;
+import javax.help.HelpSet;
 import javax.swing.ImageIcon;
 
 /**
@@ -27,8 +34,30 @@ public class jfCalculadora extends javax.swing.JFrame
         initComponents();
         ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("calc.png")));
         this.setIconImage(icon.getImage());
+        activarAyuda();
     }
 
+    private void activarAyuda()
+    {
+        try
+        {
+            //Cargar el fichero ayuda
+            File fichero = new File("help"+File.separator+"help_set.hs");
+            URL hsURL = fichero.toURI().toURL();
+            
+            //Crear el HelpSet y el HelpBroker
+            HelpSet helpset = new HelpSet(getClass().getClassLoader(), hsURL);
+            HelpBroker hb = helpset.createHelpBroker();
+            
+            //Añadir ayuda al boton y F1
+            hb.enableHelpOnButton(jMenuAyuda, "menu", helpset);
+            hb.enableHelpKey(getRootPane(), "menu", helpset);
+        } catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,6 +85,9 @@ public class jfCalculadora extends javax.swing.JFrame
         jtResultado = new javax.swing.JTextField();
         jpErrores = new javax.swing.JPanel();
         jlError = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jAyuda = new javax.swing.JMenu();
+        jMenuAyuda = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Calculadora");
@@ -149,6 +181,15 @@ public class jfCalculadora extends javax.swing.JFrame
         jPanel1.add(jlError, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 459, 43));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jAyuda.setText("Ayuda");
+
+        jMenuAyuda.setText("Mostrar ayuda");
+        jAyuda.add(jMenuAyuda);
+
+        jMenuBar1.add(jAyuda);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -304,6 +345,9 @@ public class jfCalculadora extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jAyuda;
+    private javax.swing.JMenuItem jMenuAyuda;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbDividir;
     private javax.swing.JButton jbLimpiar;
